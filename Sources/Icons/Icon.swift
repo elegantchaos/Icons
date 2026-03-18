@@ -55,3 +55,13 @@ public extension Label where Title == Text, Icon == Image {
   }
 }
 
+public extension LabeledContent where Label == SwiftUI.Label<Text, Image>, Content: View {
+  init(_ titleKey: LocalizedStringResource, icon key: IconKey, @ViewBuilder content: () -> Content) {
+    self.init {
+      content()
+    } label: {
+      SwiftUI.Label(titleKey, systemImage: key.systemImage)
+    }
+  }
+}
+
