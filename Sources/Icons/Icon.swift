@@ -50,8 +50,12 @@ public extension Label where Title == Text, Icon == Image {
     self.init(titleKey, systemImage: key.systemImage)
   }
   
-  init(_ title: String, icon key: IconKey) {
+  init(verbatim title: String, icon key: IconKey) {
     self.init(title, systemImage: key.systemImage)
+  }
+  
+  init(_ title: StringLiteralType, icon key: IconKey) {
+    self.init(LocalizedStringResource(stringLiteral: title), icon: key)
   }
 }
 
