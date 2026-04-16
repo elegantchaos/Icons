@@ -9,8 +9,8 @@ on: [push, pull_request]
 
 jobs:
 
-    macOS-swift62:
-        name: macOS (Swift 6.2)
+    macOS-swift63:
+        name: macOS (Swift 6.3)
         runs-on: macos-15
         steps:
         - name: Checkout
@@ -33,7 +33,7 @@ jobs:
         - name: Select Swift
           uses: swift-actions/setup-swift@v3
           with:
-            swift-version: "6.2"
+            swift-version: "6.3"
         - name: Swift Version
           run: swift --version
         - name: Build (release)
@@ -76,12 +76,12 @@ jobs:
           uses: actions/upload-artifact@v7
           if: always()
           with:
-            name: macOS-swift62-logs
+            name: macOS-swift63-logs
             path: logs
 
 
-    xcode-swift62:
-        name: iOS/tvOS (Swift 6.2, Xcode matching Swift 6.2)
+    xcode-swift63:
+        name: iOS/tvOS (Swift 6.3, Xcode matching Swift 6.3)
         runs-on: macos-15
         steps:
         - name: Checkout
@@ -104,7 +104,7 @@ jobs:
         - name: Resolve Xcode Version
           id: resolve-xcode
           run: |
-            REQUESTED_SWIFT="6.2"
+            REQUESTED_SWIFT="6.3"
             ls -d /Applications/Xcode* > logs/xcode-versions.log
             FOUND_XCODE=""
             while read -r APP
@@ -289,6 +289,6 @@ jobs:
           uses: actions/upload-artifact@v7
           if: always()
           with:
-            name: xcode-swift62-logs
+            name: xcode-swift63-logs
             path: logs
 
