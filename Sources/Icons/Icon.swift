@@ -10,7 +10,7 @@ import SwiftUI
 nonisolated public struct Icon: Sendable {
   /// The SF Symbols image to use.
   public let systemImage: String
-  
+
   /// Construct an icon from the given system image name.
   public init(_ value: String) {
     systemImage = value
@@ -21,51 +21,52 @@ nonisolated public struct Icon: Sendable {
 /// it is also used as a generic parameter.
 public typealias IconKey = Icon
 
-//extension IconKey: ExpressibleByStringLiteral {
-//  public init(stringLiteral value: StringLiteralType) {
-//    key = value
-//  }
-//}
-
-public extension Image {
-  init(icon key: Icon) {
-    self.init(systemName: key.systemImage)
+extension Image {
+  public init(icon: Icon) {
+    self.init(systemName: icon.systemImage)
   }
 }
 
 #if canImport(UIKit)
-public extension UIImage {
-  convenience init?(systemName key: Icon) {
-    self.init(systemName: key.systemImage)
+  extension UIImage {
+    @available(*, deprecated, message: "Use UIImage(icon:) instead")
+    public convenience init?(systemName key: Icon) {
+      self.init(systemName: key.systemImage)
+    }
+
+    public convenience init?(icon: Icon) {
+      self.init(systemName: icon.systemImage)
+    }
+
   }
-}
 #endif
 
-public extension Label where Title == Text, Icon == Image {
-  init(_ titleKey: LocalizedStringResource, icon key: IconKey) {
-    self.init(titleKey, systemImage: key.systemImage)
+extension Label where Title == Text, Icon == Image {
+  public init(_ titleKey: LocalizedStringResource, icon: IconKey) {
+    self.init(titleKey, systemImage: icon.systemImage)
   }
 
-  init(_ titleKey: LocalizedStringKey, icon key: IconKey) {
-    self.init(titleKey, systemImage: key.systemImage)
+  public init(_ titleKey: LocalizedStringKey, icon: IconKey) {
+    self.init(titleKey, systemImage: icon.systemImage)
   }
-  
-  init(verbatim title: String, icon key: IconKey) {
-    self.init(title, systemImage: key.systemImage)
+
+  public init(verbatim title: String, icon: IconKey) {
+    self.init(title, systemImage: icon.systemImage)
   }
-  
-  init(_ title: StringLiteralType, icon key: IconKey) {
-    self.init(LocalizedStringResource(stringLiteral: title), icon: key)
+
+  public init(_ title: StringLiteralType, icon: IconKey) {
+    self.init(LocalizedStringResource(stringLiteral: title), icon: icon)
   }
 }
 
-public extension LabeledContent where Label == SwiftUI.Label<Text, Image>, Content: View {
-  init(_ titleKey: LocalizedStringResource, icon key: IconKey, @ViewBuilder content: () -> Content) {
+extension LabeledContent where Label == SwiftUI.Label<Text, Image>, Content: View {
+  public init(
+    _ titleKey: LocalizedStringResource, icon: IconKey, @ViewBuilder content: () -> Content
+  ) {
     self.init {
       content()
     } label: {
-      SwiftUI.Label(titleKey, systemImage: key.systemImage)
+      SwiftUI.Label(titleKey, systemImage: icon.systemImage)
     }
   }
 }
-
