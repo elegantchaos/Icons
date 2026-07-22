@@ -1,16 +1,18 @@
-//
-//  Test.swift
-//  Settings
-//
-//  Created by Sam Deane on 02/03/2026.
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  Created by Sam Deane on 22/07/2026.
+//  Copyright © 2026 Elegant Chaos Limited. All rights reserved.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+import Icons
 import Testing
 
-struct SettingsTests {
+/// Tests the public icon model.
+struct IconTests {
+  /// Verifies that icons preserve their SF Symbol names.
+  @Test("Icon preserves its SF Symbol name", arguments: ["star", "square.and.arrow.up"])
+  func preservesSystemImageName(_ systemImage: String) {
+    let icon = Icon(systemImage)
 
-    @Test func test() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    }
-
+    #expect(icon.systemImage == systemImage)
+  }
 }
