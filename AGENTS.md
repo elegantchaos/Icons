@@ -22,7 +22,7 @@
 - Use the `swiftui` skill for SwiftUI APIs and extensions.
 - Use the `swift-concurrency-pro` skill for isolation and concurrency-sensitive code.
 - Use the `swift-testing-pro` skill for Swift Testing code.
-- Use the `validation-flow` skill after changing Swift code.
+- Use the `swift-validation` skill after changing Swift code.
 - Use the `codex-git` skill for git operations.
 
 To refresh this file, use the `refresh` skill.
