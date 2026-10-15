@@ -5,24 +5,22 @@
 
 # Standard Rules
 
-- Write modern, idiomatic code; fix root causes, keep interfaces explicit and small, avoid hidden coupling and surprising side effects, and keep documentation aligned with the current state.
-- Apply DRY and Single Source Of Truth. Apply KISS, YAGNI, illegal-state prevention, dependency injection, composition, command-query separation, the Law of Demeter, structured concurrency, design by contract, and idempotency where relevant.
-- Understand request boundaries and inspect relevant code and documentation before editing. Keep focused changes coherent, and use repository-wide scope for cleanup, review, modernization, and consistency work.
-- Use red/green TDD for non-UI code, add or update tests for behavior changes, and create previews for UI code when the tooling supports them.
-- Run the narrowest relevant validation first, then broaden to project checks. Report commands run, skipped checks with reasons, validation gaps, and residual risks.
-- Keep paths portable: use repository-relative paths for repository files and home-relative paths for shared resources.
-- Never expose or commit credentials or secrets. Do not perform irreversible destructive actions without explicit approval.
-- If unexpected workspace changes appear, pause and confirm direction.
-- Prefer trusted primary sources for technical decisions, especially official language, platform, package, API, and dependency documentation.
+1. Locate the shared agents content before starting work. Use `~/.local/share/agents/` when available; otherwise obtain it from https://github.com/elegantchaos/Agents.
+2. You must read @~/.local/share/agents/COMMON.md before starting work, and follow the instructions in it at all times (use `COMMON.md` from the GitHub copy when the local one is unavailable).
+3. Resolve the skill names below from that same content, including skills provided by plugins.
+4. For each skill required by the task, read its `SKILL.md` and every reference it marks as required before starting the work, and follow them. Required references are part of the skill's rules, not optional background.
+5. Follow the guidelines in all code you write or change, even where the surrounding code does not.
+6. Before reporting work complete, check each changed file against the required skills' checklists, and report the result and any exceptions.
+7. Report any required guidance you cannot access.
 
-# Skills
+- Follow the `baseline:standards` skill for all coding.
+- Use the `baseline:review` skill for reviewing pull requests and completed work.
+- Use the `baseline:records` skill for the development journal.
+- Use the `codex-git` skill for git and GitHub operations.
+- Use the `swift:language` skill for all Swift code.
+- Also use the `swift:swiftui` skill for SwiftUI code.
+- Also use the `swift:testing` skill for Swift Testing work.
+- Also use the `swift:concurrency` skill for actor isolation and shared mutable state.
+- Use the `swift:validation` skill after Swift code changes.
 
-- Follow the `coding-standards` skill for all coding and review work.
-- Use the `swift` skill for Swift language and source-organization guidance.
-- Use the `swiftui` skill for SwiftUI APIs and extensions.
-- Use the `swift-concurrency-pro` skill for isolation and concurrency-sensitive code.
-- Use the `swift-testing-pro` skill for Swift Testing code.
-- Use the `swift-validation` skill after changing Swift code.
-- Use the `codex-git` skill for git operations.
-
-To refresh this file, use the `refresh` skill.
+To refresh this file, use the `baseline:refresh` skill.
