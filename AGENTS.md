@@ -2,6 +2,7 @@
 
 - This repository is a Swift package for shared icon identifiers and icon-related helpers.
 - Keep a development journal in `Extras/Journal/`.
+- Keep a decision log in `Extras/Decisions/`.
 
 # Standard Rules
 
@@ -15,7 +16,7 @@
 
 - Follow the `baseline:standards` skill for all coding.
 - Use the `baseline:review` skill for reviewing pull requests and completed work.
-- Use the `baseline:records` skill for the development journal.
+- Use the `baseline:records` skill for the development journal and decision log.
 - Use the `codex-git` skill for git and GitHub operations.
 - Use the `swift:language` skill for all Swift code.
 - Also use the `swift:swiftui` skill for SwiftUI code.
